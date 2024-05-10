@@ -1,2 +1,0 @@
-# update
-Github activity updating
