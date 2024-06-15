@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Запрос имени пользователя
+read -p "Введите username вашего пользователя GitHub: " username
+
+if [ -z "$username" ]; then
+  echo "Ошибка: значение не может быть пустым"
+  exit 1
+fi
+
+# Создание папки username
+echo "Создаём папку $username"
+user_dir="/root/github/$username"
+mkdir -p "$user_dir"
+
+if [ ! -d "$user_dir" ]; then
+  echo "Ошибка: не удалось создать папку '$user_dir'."
+  exit 1
+fi
+
+# Скачиваем скрипты
+echo "Загружаем необходимые скрипты"
+curl -sSL https://github.com/AndriiKok/Activity/blob/main/putScript.js > "$user_dir/putScript.js"
+curl -sSL https://github.com/AndriiKok/Activity/blob/main/deleteScript.js > "$user_dir/deleteScript.js"
+
+# Запрос имени репозитория
+read -p "Введите название вашего репозитория GitHub: " rep
+
+if [ -z "$rep" ]; then
+  echo "Ошибка: значение не может быть пустым"
+  exit 1
+fi
+
+# Запрос директории
+read -p "Введите полный путь к директории репозитрия: " folder
+
+if [ -z "$folder" ]; then
+  echo "Ошибка: значение не может быть пустым"
+  exit 1
+fi
+
+# Запрос Personal Access Token
+read -p "Введите ключ разработчика: " key
+
+if [ -z "$key" ]; then
+  echo "Ошибка: значение не может быть пустым"
+  exit 1
+fi
+
+# Обновление файла с именем пользователя
+file="$user_dir/putScript.js"
+
+# Создание временного файла
+temp_file=$(mktemp)
+
+# Запись строк из исходного файла в временный, заменяя "user" на новое имя
+while IFS= read -r line; do
+  if [[ $line == *"const githubUsername = "* ]]; then
+    echo "const githubUsername = \"$username\";"
+  else
+    echo "$line"
+  fi
+done < "$file" > "$temp_file"
+
+# Перемещение временного файла на место исходного
+mv "$temp_file" "$file"
+
+# Сообщение об успешном выполнении
+echo "Имя пользователя GitHub обновлено в файле $file."
