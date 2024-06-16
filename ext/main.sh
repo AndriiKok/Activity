@@ -52,15 +52,8 @@ curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScrip
 mv "$user_dir/putScript.js" "$user_dir/$rep.js"
 
 # 3. Обновить файл put.js
-sudo nano $user_dir/$rep.js
-sed -i "s/user_name/$username/g" $user_dir/$rep.js
-:wq
-
-# 4. Проверка обновления
-if [ $? -ne 0 ]; then
-  echo "Ошибка: не удалось обновить файл put.js."
-  exit 1
-fi
+cd $user_dir
+find . -type f -exec sed -i "s/user_name/$username/g" {} +
 
 # 5. Подтверждение
 echo "Файл put.js успешно обновлен."
