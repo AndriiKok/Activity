@@ -12,10 +12,11 @@ mkdir -p "$user_dir"
 
 # Скачиваем скрипты
 echo "Загружаем необходимые скрипты"
-curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/$rep-put.js"
-curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteScript.js > "$user_dir/$rep-delete.js"
+curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/putScript.js"
+curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteScript.js > "$user_dir/deleteScript.js"
 
-# mv "$user_dir/putScript.js" "$user_dir/$rep.js"
+mv "$user_dir/putScript.js" "$user_dir/$rep-put.js"
+mv "$user_dir/deleteScript.js" "$user_dir/$rep-delete.js"
 
 # 3. Обновить файл put.js
 cd $user_dir
