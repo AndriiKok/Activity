@@ -15,3 +15,4 @@ npm install axios js-base64 fs path
 sudo mkdir /root/github_update && cd /root/github_update
 curl -fsSL https://github.com/AndriiKok/Activity/raw/main/ext/files.zip > "/root/github_update/files.zip"
 unzip -q -d /root/github_update files.zip && rm -rf /root/github_update/files.zip
+echo -e "Готово, продолжайте по гайду"
