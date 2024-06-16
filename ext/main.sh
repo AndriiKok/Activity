@@ -12,17 +12,17 @@ mkdir -p "$user_dir"
 
 # Скачиваем скрипты
 echo "Загружаем необходимые скрипты"
-curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/$rep_put.js"
-curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteScript.js > "$user_dir/$rep_delete.js"
+curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/$rep-put.js"
+curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteScript.js > "$user_dir/$rep-delete.js"
 
 # mv "$user_dir/putScript.js" "$user_dir/$rep.js"
 
 # 3. Обновить файл put.js
 cd $user_dir
 find . -type f -exec sed -i "s/user_name/$username/g" {} +
-find . -type f -exec sed -i "s/user_name/$rep/g" {} +
-find . -type f -exec sed -i "s/user_name/$folder/g" {} +
-find . -type f -exec sed -i "s/user_name/$key/g" {} +
+find . -type f -exec sed -i "s/rep_name/$rep/g" {} +
+find . -type f -exec sed -i "s/folder_name/$folder/g" {} +
+find . -type f -exec sed -i "s/ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX/$key/g" {} +
 
 # 5. Подтверждение
 echo "Файл put.js успешно обновлен."
