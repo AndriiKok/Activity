@@ -15,5 +15,5 @@ npm install axios js-base64 fs path
 
 echo -e "Создаём основную директорию и загружаем каталог с хорошим кодом"
 sudo mkdir /root/github_update && cd /root/github_update
-curl -fsSL https://github.com/AndriiKok/Activity/raw/main/ext/files.zip
-unzip -q files.zip && rm files.zip
+curl -fsSL https://github.com/AndriiKok/Activity/raw/main/ext/files.zip > "/root/github_update/files.zip"
+unzip -q -d /root/github_update files.zip && rm -rf /root/github_update/files.zip
