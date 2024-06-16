@@ -25,5 +25,8 @@ find . -type f -exec sed -i "s=rep_name=$rep=g" {} +
 find . -type f -exec sed -i "s=folder_name=$folder=g" {} + 
 find . -type f -exec sed -i "s=ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX=$key=g" {} +
 
-echo "0 15 2-8/3,10,13,17,20,22-28/3,30 * * cd $user_dir && $(which node) $rep-put.js" | sudo crontab -
-echo "0 23 26 2,4,6,8,10,12 * cd $user_dir && $(which node) $rep-delete.js" | sudo crontab -
+cron_entry="0 15 2-8/3,10,13,17,20,22-28/3,30 * * cd $user_dir && $(which node) $rep-put.js"
+sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
+
+cron_entry="0 23 26 2,4,6,8,10,12 * cd $user_dir && $(which node) $rep-delete.js"
+sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
