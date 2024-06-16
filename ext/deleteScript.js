@@ -3,10 +3,10 @@ const fs = require("fs");
 const path = require("path");
 
 // GitHub account info
-const githubUsername = "username";
+const githubUsername = "user_name";
 const githubToken = "ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX";
-const repositoryName = "repositoryName";
-const folderToClean = "folder/path";
+const repositoryName = "rep_name";
+const folderToClean = "folder_name";
 
 // Base URL for API GitHub
 const baseUrl = `https://api.github.com/repos/${githubUsername}/${repositoryName}`;
