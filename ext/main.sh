@@ -36,7 +36,7 @@ fi
 
 # Создание папки username
 echo "Создаём папку $username"
-user_dir="/root/github/$username"
+user_dir="/root/github_update/$username"
 mkdir -p "$user_dir"
 
 if [ ! -d "$user_dir" ]; then
