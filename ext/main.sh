@@ -51,14 +51,10 @@ curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScrip
 
 mv "$user_dir/putScript.js" "$user_dir/$rep.js"
 
-# Проверка параметров
-if [ -z "$username" -o -z "$rep" -o -z "$key" -o -z "$folder" ]; then
-  echo "Ошибка: username, repositoryName, token или folder не могут быть пустыми."
-  exit 1
-fi
-
 # 3. Обновить файл put.js
-sed -i "s/user_name/$username/g; s/rep_name/$rep/g; s/ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX/$key/g; s/folder_name/$folder/g" $user_dir/$rep.js
+sudo nano $user_dir/$rep.js
+sed -i "s/user_name/$username/g" $user_dir/$rep.js
+:wq
 
 # 4. Проверка обновления
 if [ $? -ne 0 ]; then
