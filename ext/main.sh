@@ -6,12 +6,10 @@ read -p "Введите полный путь к директории репоз
 read -p "Введите ключ разработчика: " key
 
 # Создание папки username
-echo "Создаём папку $username"
 user_dir="/root/github_update/$username"
 mkdir -p "$user_dir"
 
 # Скачиваем скрипты
-echo "Загружаем необходимые скрипты"
 curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/putScript.js"
 curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteScript.js > "$user_dir/deleteScript.js"
 
@@ -30,3 +28,4 @@ sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
 cron_entry="0 23 26 2,4,6,8,10,12 * cd $user_dir && $(which node) $rep-delete.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
+echo "Готово, можно проверять"
