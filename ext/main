@@ -8,21 +8,6 @@ if [ -z "$username" ]; then
   exit 1
 fi
 
-# Создание папки username
-echo "Создаём папку $username"
-user_dir="/root/github/$username"
-mkdir -p "$user_dir"
-
-if [ ! -d "$user_dir" ]; then
-  echo "Ошибка: не удалось создать папку '$user_dir'."
-  exit 1
-fi
-
-# Скачиваем скрипты
-echo "Загружаем необходимые скрипты"
-curl -sSL https://github.com/AndriiKok/Activity/blob/main/putScript.js > "$user_dir/putScript.js"
-curl -sSL https://github.com/AndriiKok/Activity/blob/main/deleteScript.js > "$user_dir/deleteScript.js"
-
 # Запрос имени репозитория
 read -p "Введите название вашего репозитория GitHub: " rep
 
@@ -47,23 +32,39 @@ if [ -z "$key" ]; then
   exit 1
 fi
 
-# Обновление файла с именем пользователя
-file="$user_dir/putScript.js"
+########################################################################################################
 
-# Создание временного файла
-temp_file=$(mktemp)
+# Создание папки username
+echo "Создаём папку $username"
+user_dir="/root/github/$username"
+mkdir -p "$user_dir"
 
-# Запись строк из исходного файла в временный, заменяя "user" на новое имя
-while IFS= read -r line; do
-  if [[ $line == *"const githubUsername = "* ]]; then
-    echo "const githubUsername = \"$username\";"
-  else
-    echo "$line"
-  fi
-done < "$file" > "$temp_file"
+if [ ! -d "$user_dir" ]; then
+  echo "Ошибка: не удалось создать папку '$user_dir'."
+  exit 1
+fi
 
-# Перемещение временного файла на место исходного
-mv "$temp_file" "$file"
+# Скачиваем скрипты
+echo "Загружаем необходимые скрипты"
+curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/putScript.js"
+# curl -sSL https://github.com/AndriiKok/Activity/blob/main/deleteScript.js > "$user_dir/deleteScript.js"
 
-# Сообщение об успешном выполнении
-echo "Имя пользователя GitHub обновлено в файле $file."
+rename "s/putScript.js/$rep.js/" "$user_dir/putScript.js"
+
+# Проверка параметров
+if [ -z "$username" -o -z "$rep" -o -z "$key" -o -z "$folder" ]; then
+  echo "Ошибка: username, repositoryName, token или folder не могут быть пустыми."
+  exit 1
+fi
+
+# 3. Обновить файл put.js
+sed -i "s/user_name/$username/g; s/rep_name/$rep/g; s/ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX/$key/g; s/folder_name/$folder/g" $user_dir/$rep.js
+
+# 4. Проверка обновления
+if [ $? -ne 0 ]; then
+  echo "Ошибка: не удалось обновить файл put.js."
+  exit 1
+fi
+
+# 5. Подтверждение
+echo "Файл put.js успешно обновлен."
