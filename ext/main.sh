@@ -49,7 +49,7 @@ echo "Загружаем необходимые скрипты"
 curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/putScript.js > "$user_dir/putScript.js"
 # curl -sSL https://github.com/AndriiKok/Activity/blob/main/deleteScript.js > "$user_dir/deleteScript.js"
 
-rename "s/putScript.js/$rep.js/" "$user_dir/putScript.js"
+mv "$user_dir/putScript.js" "$user_dir/$rep.js"
 
 # Проверка параметров
 if [ -z "$username" -o -z "$rep" -o -z "$key" -o -z "$folder" ]; then
