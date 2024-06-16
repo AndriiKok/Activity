@@ -6,7 +6,7 @@ const fs = require('fs');
 const githubUsername = "username";
 const githubToken = "ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX";
 const repositoryName = "repositoryName";
-const folderPath = "folder/path";
+const folderPath = "folder";
 
 // Base URL for API GitHub
 const baseUrl = `https://api.github.com/repos/${githubUsername}/${repositoryName}/contents/${folderPath}`;
