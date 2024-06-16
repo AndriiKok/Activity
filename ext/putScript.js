@@ -3,10 +3,10 @@ const { Base64 } = require('js-base64');
 const fs = require('fs');
 
 // GitHub account info
-const githubUsername = "username";
+const githubUsername = "user_name";
 const githubToken = "ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX";
-const repositoryName = "repositoryName";
-const folderPath = "folder";
+const repositoryName = "rep_name";
+const folderPath = "folder_name";
 
 // Base URL for API GitHub
 const baseUrl = `https://api.github.com/repos/${githubUsername}/${repositoryName}/contents/${folderPath}`;
