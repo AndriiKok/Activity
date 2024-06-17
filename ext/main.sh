@@ -16,7 +16,7 @@ curl -sSL https://raw.githubusercontent.com/AndriiKok/Activity/main/ext/deleteSc
 mv "$user_dir/putScript.js" "$user_dir/$rep-put.js"
 mv "$user_dir/deleteScript.js" "$user_dir/$rep-delete.js"
 
-# 3. Обновить файл put.js
+# 3. Обновляем скрипты
 cd $user_dir
 find . -type f -exec sed -i "s=user_name=$username=g" {} + 
 find . -type f -exec sed -i "s=rep_name=$rep=g" {} + 
