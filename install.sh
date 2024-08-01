@@ -21,9 +21,10 @@ sleep 1
 echo "Весь необходимый софт установлен"
 echo "-----------------------------------------------------------------------------"
 cd $HOME
-git clone https://github.com/0glabs/0g-chain.git
-cd 0g-chain
-git checkout v0.2.5 
+wget https://github.com/0glabs/0g-chain/archive/refs/heads/dev.zip
+unzip dev.zip && rm -rf dev.zip
+mv 0g-chain-dev/ 0g-chain/
+cd 0g-chain 
 make install
 0gchaind version
 echo "Репозиторий успешно склонирован, начинаем билд"
