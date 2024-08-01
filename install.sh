@@ -21,12 +21,11 @@ sleep 1
 echo "Весь необходимый софт установлен"
 echo "-----------------------------------------------------------------------------"
 cd $HOME
-wget https://github.com/0glabs/0g-chain/archive/refs/heads/dev.zip
-unzip dev.zip && rm -rf dev.zip
-mv 0g-chain-dev/ 0g-chain/
-cd 0g-chain 
+wget https://github.com/0glabs/0g-chain/archive/refs/tags/v0.2.5.zip
+unzip v0.2.5.zip && rm -rf v0.2.5.zip
+mv 0g-chain-0.2.5/ 0g-chain/
+cd $HOME/0g-chain
 make install
-0gchaind version
 echo "Репозиторий успешно склонирован, начинаем билд"
 echo "-----------------------------------------------------------------------------"
 0gchaind config chain-id zgtendermint_16600-2
