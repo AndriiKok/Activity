@@ -1,0 +1,23 @@
+# pack-refs with: peeled fully-peeled sorted 
+14401bd2fb77dae63fec69574a55871718bcf1ef refs/remotes/origin/dev
+be505a4c58f08fb731b670dc036c7392245ea6a4 refs/remotes/origin/dev-047
+b4b51d2ef8d9f0395c071af583952a754ef95ab1 refs/remotes/origin/dev_merge_testnet
+49c821a1aaf83c1833725966114feff8d8d38702 refs/remotes/origin/devnet/test-multi-sign-vesting-account
+e727f9136bfb2d0b179114175b231cf070f6e7e2 refs/remotes/origin/master
+f3f9b706eacb284b9711ab08ff1d61a7ca3d6681 refs/remotes/origin/opt-quorum
+cb39713e5dba28a662b3a40ee66a339d601ee4ba refs/remotes/origin/quorum
+b62cc7e4ec6ce72f1b59c3be8a170bd0cb03743c refs/remotes/origin/release/v0.25.x
+77e63c421e9afaf999d411abad2eab3b7a50f828 refs/remotes/origin/release/v0.26.x
+0b20cabefb9017db22904dc85f526e816ef003cc refs/remotes/origin/testnet/v0.1.x
+d1318f2b98ad3c6f7053b2748ddb0de89a56f303 refs/remotes/origin/testnet/v0.2.0
+4fb6fb986ea672fd414fbe65ada93f5387e70a07 refs/remotes/origin/testnet/v0.2.x
+7bc25a060fab9c17bc9942b6747cd07a668d3042 refs/tags/v0.1.0
+bdc01107c507ad04621eb24ba26a1e50c82d8d3e refs/tags/v0.2.1
+^d380335dd4aa9cdc42b4a540df3c9ad81c84880c
+5750f5e69b9b7a8ed7ba03d5a5a906af9c16824e refs/tags/v0.2.2
+45750dc1bb19b7b825d4815b8dce3b1e73fda1f2 refs/tags/v0.2.3
+^7852b602221f683b87ab9f7155cf8236a57159ff
+3486c087ded907825e7baeee659290b3f27f972c refs/tags/v0.2.5
+^b7d59a7d1ef643a24fd3b4fcd0615abeb589173d
+7e6451a528ee63cacaecb868b15b02f551b58795 refs/tags/v0.24.2
+1f82949c56162159832b7ec3bcfc78f6b93a0b13 refs/tags/v0.25.0
