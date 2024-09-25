@@ -1,6 +1,4 @@
 #!/bin/bash
-# Logo
-sleep 3
 
 # Step 1: Install hardhat
 echo "Install Hardhat..."
