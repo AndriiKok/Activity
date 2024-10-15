@@ -15,4 +15,4 @@ sudo apt-get autoremove
 #Устанавливаем node_exporter
 sudo apt-get update
 sudo apt-get install prometheus-node-exporter -y
-sudo systemctl daemon-reload && sudo systemctl enable node_exporter && sudo systemctl restart node_exporter
+sudo systemctl enable node_exporter && sudo systemctl restart node_exporter
