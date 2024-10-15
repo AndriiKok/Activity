@@ -10,7 +10,7 @@ sudo apt-get autoremove
 sudo systemctl stop prometheus && systemctl disable prometheus
 sudo apt-get remove prometheus
 sudo rm -rf /etc/prometheus /var/lib/prometheus
-sudo apt-get
+sudo apt-get autoremove
 
 #Устанавливаем node_exporter
 sudo apt-get update
