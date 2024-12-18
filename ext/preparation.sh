@@ -8,6 +8,7 @@ source ~/.bashrc
 nvm install v22.11.0
 
 sudo apt-get update
+sudo apt-get install postfix zip
 npm install axios js-base64 fs path
 
 sudo mkdir /root/github_update && cd /root/github_update
